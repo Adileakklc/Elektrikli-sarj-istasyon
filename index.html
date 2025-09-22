@@ -1,111 +1,267 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Elektrikli Şarj İstasyonlarının Bilgi Güvenliği</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #2b1055, #7597de);
-      color: #fff;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.3);
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: #ffd700;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #f0eaff;
-    }
-    main {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
-      display: grid;
-      gap: 20px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h2 {
-      color: #ff9eff;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    ul li {
-      margin-bottom: 6px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      background: rgba(0,0,0,0.3);
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektrikli Şarj İstasyonu Güvenliği - Bitirme Projesi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <h1> Elektrikli Şarj İstasyonlarının Bilgi Güvenliği</h1>
-    <p>Standartlar • Risk Analizi • Çözümler</p>
-  </header>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Elektrikli Şarj İstasyonlarının Bilgi Güvenliği</h1>
+            <nav>
+                <ul>
+                    <li><a href="#giris">Giriş</a></li>
+                    <li><a href="#mimari">Mimari</a></li>
+                    <li><a href="#testler">Saldırı Testleri</a></li>
+                    <li><a href="#kurallar">Güvenlik Kuralları</a></li>
+                    <li><a href="#makine-ogrenmesi">Makine Öğrenmesi</a></li>
+                    <li><a href="#panel">Operatör Paneli</a></li>
+                    <li><a href="#standartlar">Standartlar</a></li>
+                    <li><a href="#rapor">Rapor</a></li>
+                    <li><a href="swagger.html">API (Swagger)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section class="card">
-      <h2> Araştırma ve Veri Toplama</h2>
-      <ul>
-        <li>ISO 27001, IEC 62443 standartları</li>
-        <li>Siber tehditler: MITM, DDoS, malware, phishing</li>
-        <li>Kullanıcı verilerinin gizlilik gereksinimleri</li>
-        <li>KVKK / GDPR uyumluluk gereksinimleri</li>
-      </ul>
-    </section>
+    <main>
+        <!-- Giriş -->
+        <section id="giris" class="content-section hero">
+            <div class="container">
+                <h2>Proje Özeti: Elektrikli Şarj İstasyonu Güvenliği</h2>
+                <p>Bu proje, elektrikli araç şarj istasyonlarının siber güvenlik açıklarını analiz ederek, olası saldırı türlerini incelemekte ve bu tehditlere karşı koruyucu mekanizmalar geliştirmeyi amaçlamaktadır. Proje kapsamında OCPP protokolü, DoS, MITM ve Replay gibi saldırılar ve makine öğrenmesi tabanlı anomali tespiti konularına odaklanılmıştır.</p>
+                <div class="call-to-action">
+                    <a href="#mimari" class="btn">Proje Mimarisini Keşfet</a>
+                    <a href="docs/proje-raporu.md" class="btn secondary-btn">Detaylı Raporu İncele</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2> Analiz ve Risk Tespiti</h2>
-      <ul>
-        <li>Yazılım açıklarının belirlenmesi</li>
-        <li>Fiziksel güvenlik zafiyetleri</li>
-        <li>Ağ güvenliği test planı</li>
-      </ul>
-    </section>
+        <!-- Mimari -->
+        <section id="mimari" class="content-section">
+            <div class="container">
+                <h2>Sistem Mimarisi</h2>
+                <p>Geliştirilen güvenlik sisteminin genel mimarisini aşağıdaki diyagram özetler. Ayrıntılı açıklama için sayfa sonundaki butona bakabilirsiniz.</p>
+                <div class="diagram-container">
+                    <img src="docs/assets/mimari.jpg" alt="Sistem Mimari Diyagramı" class="diagram-img">
+                </div>
+                <p>Bu diyagram; istasyon, güvenlik katmanı (rate-limit, nonce/HMAC, kural motoru) ve ML skor servisinin
+       akışını; panel, log ve veritabanı etkileşimlerini şematik olarak gösterir.</p>
+                <a href="docs/mimari.md" class="btn primary-btn">Detaylı Mimariyi Gör</a>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2> Çözüm Önerileri</h2>
-      <ul>
-        <li>Şifreleme yöntemleri (AES-256, TLS)</li>
-        <li>Güvenli kimlik doğrulama (2FA, sertifikalar)</li>
-        <li>Düzenli güncelleme politikası</li>
-      </ul>
-    </section>
-  </main>
+        <section id="testler" class="content-section">
+            <div class="container">
+                <h2>Saldırı Testleri: MITM, Replay, DoS</h2>
+                <p>Sistem üzerinde gerçekleştirilen saldırı testlerinin özetini aşağıdaki kartlarda görebilir, ayrıntıları tek bir dokümanda inceleyebilirsiniz.</p>
 
-  <footer>
-    © 2025 Elektrikli Şarj İstasyonlarının Bilgi Güvenliği Projesi
-  </footer>
+                <div class="card-grid" role="list">
+                <!-- MITM -->
+                <div class="card" role="listitem" aria-labelledby="mitm-title">
+                <div class="thumb">
+                <img src="docs/assets/mitm-cover.png" alt="MITM kapak görseli" loading="lazy">
+                <span class="badge danger">MITM</span>
+                </div>
+                <div class="card-body">
+                <h3 id="mitm-title">MITM Saldırısı</h3>
+                <p>MITM, istemci ile sunucu arasına girerek paketleri yakalar, yeniden oynatır veya içeriğini değiştirir. 
+                    Bu, enerji, süre veya ödeme verilerinin manipüle edilmesine yol açabilir. 
+                    Detaylı tespit ve çözüm önerileri için “Tüm Saldırı Vakalarını Oku” butonundan MITM bölümünü inceleyin.</p>
+                </div>
+            </div>
 
+            <!-- Replay -->
+            <div class="card" role="listitem" aria-labelledby="replay-title">
+                <div class="thumb">
+                <img src="docs/assets/replay-cover.png" alt="Replay kapak görseli" loading="lazy">
+                <span class="badge warn">Replay</span>
+                </div>
+                <div class="card-body">
+                <h3 id="replay-title">Replay Saldırısı</h3>
+                <p>Replay (yeniden oynatma) saldırısında daha önce ele geçirilmiş bir mesaj yeniden gönderilir; sistem aynı nonce ya da eski timestamp ile gelen talepleri reddetmelidir. 
+                    Detaylı tespit yöntemleri ve örnek log/komutlar için “Tüm Saldırı Vakalarını Oku” butonundan Replay bölümünü inceleyin.</p>
+                </div>
+            </div>
+
+            <!-- DoS -->
+            <div class="card" role="listitem" aria-labelledby="dos-title">
+                <div class="thumb">
+                <img src="docs/assets/dos-cover.png" alt="DoS kapak görseli" loading="lazy">
+                <span class="badge info">DoS</span>
+            </div>
+        <div class="card-body">
+          <h3 id="dos-title">DoS Saldırısı</h3>
+          <p>Denial-of-Service (DoS) senaryolarında hedef sunucuya kısa zamanda aşırı istek gönderilir ve servis yanıt veremez hâle gelir; 
+            IP/device bazlı rate limiting, queueing ve otomatik throttling ile korunma sağlanır. 
+            Ayrıntılı test komutları ve izleme önerileri için “Tüm Saldırı Vakalarını Oku” butonundan DoS bölümüne bakın.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem">
+      <a href="docs/saldiri-vakalari.md" class="btn">Tüm Saldırı Vakalarını Oku</a>
+    </div>
+  </div>
+</section>
+
+
+            <!-- Kurallar -->
+            <section id="kurallar" class="content-section">
+                <div class="container">
+                    <h2>Güvenlik Kuralları ve Önlemler</h2>
+                    <p>Geliştirilen güvenlik mekanizmalarının temelini oluşturan kurallar:</p>
+                    <ul>
+                        <li><strong>Rate Limiting (Oran Sınırlama):</strong> Belirli bir süre içerisinde gönderilen isteklerin sayısını kontrol altında tutarak sistemin aşırı yüklenmesini ve hizmet kesintilerini engeller.</li>
+                        <li><strong>Nonce Kullanımı:</strong> Her isteğe benzersiz bir kimlik (nonce) atanarak aynı mesajın tekrar gönderilip sisteme zarar vermesi önlenir, böylece replay saldırılarına karşı tam koruma sağlanır.</li>
+                        <li><strong>İmza Doğrulaması:</strong> Gönderilen her mesaj kriptografik imzalarla doğrulanır; bu sayede hem verinin bütünlüğü hem de kaynağın gerçekliği garanti altına alınır..</li>
+                    </ul>
+
+                 <!-- Sertleştirme.md bağlantısı -->
+                    <div class="cta-row">
+                    <a href="docs/sertlestirme.md" class="btn primary-btn" title="Detaylı Sertleştirme Notlarını Görüntüle">
+                    Sertleştirme Dokümanını İncele
+                    </a>
+                    </div>
+                </div>
+        </section>
+
+
+        <!-- Makine Öğrenmesi -->
+        <section id="makine-ogrenmesi" class="content-section">
+            <div class="container">
+                <h2>Anomali Tespiti: IsolationForest vs. Logistic Regression</h2>
+                <p>Projede kullanılan makine öğrenmesi modellerinin özet karşılaştırması. 
+                    Detaylı metrikler ve grafikler için dokümana göz atabilirsiniz</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Doğruluk Oranı (%)</th>
+                                <th>Hata Oranı (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IsolationForest</td>
+                                <td>100</td>
+                                <td>0.0</td>
+                            </tr>
+                            <tr>
+                                <td>Logistic Regression</td>
+                                <td>74.2</td>
+                                <td>25.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cta-row" style="margin-top:1rem">
+                    <a class="btn" href="docs/ml.md" title="Detaylı Makine Öğrenmesi Dokümanı">
+                    Detaylı Dokümanı İncele
+                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="operator-paneli" class="content-section">
+            <div class="container">
+                <h2>Operatör Paneli</h2>
+                <p>
+                Operatör paneli, şarj istasyonlarının güvenliğini ve çalışma durumunu
+                gerçek zamanlı olarak izlemek için geliştirilmiştir. Bu panel sayesinde:
+                </p>
+                <ul class="panel-desc">
+                <li>🔋 Tüm şarj oturumlarını ve istasyonların anlık durumunu görebilirsiniz.</li>
+                <li>⚡ Enerji, süre, voltaj ve akım değerlerini takip edebilirsiniz.</li>
+                <li>🚨 Anormallik tespit edildiğinde alarm ekranı üzerinden riskli oturumları inceleyebilirsiniz.</li>
+                <li>🛑 Gerekirse <b>"Seansı Durdur"</b> özelliği ile şüpheli oturumları sonlandırabilirsiniz.</li>
+                </ul>
+
+                <div class="panel-link">
+                <a href="panel.html" class="btn-main">🔗 Operatör Paneline Git</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Güvenlik Standartları -->
+        <section id="standartlar" class="content-section">
+            <div class="container">
+                <h2>Güvenlik Standartları ve Uyumluluk</h2>
+                <p>Projemiz, uluslararası kabul görmüş güvenlik standartlarını temel alarak geliştirilmiştir.</p>
+
+                <div class="card-grid">
+                <!-- ISO 27001 -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3>🔒 ISO 27001</h3>
+                        <p>Bilgi güvenliği yönetim sistemleri için en yaygın standart. Verilerin gizliliğini, bütünlüğünü ve erişilebilirliğini garanti altına alır.</p>
+                    </div>
+                </div>
+
+                <!-- IEC 62443 -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3>🏭 IEC 62443</h3>
+                        <p>Endüstriyel otomasyon ve kontrol sistemleri için güvenlik çerçevesi. Kritik altyapılarda siber tehditlere karşı dayanıklılığı artırır.</p>
+                    </div>
+                </div>
+
+                <!-- OCPP Security Profiles -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3>⚡ OCPP Security Profiles</h3>
+                        <p>Elektrikli şarj istasyonlarında kullanılan OCPP protokolüne yönelik güvenlik profilleri. İletişimde şifreleme ve kimlik doğrulama sağlar.</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="cta-row" style="margin-top:1.2rem; text-align:center;">
+                    <a href="docs/standartlar.md" class="btn primary-btn" title="Detaylı Standartlar Dokümanı">
+                    Detaylı Dokümanı İncele
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rapor -->
+        <section id="rapor" class="content-section">
+            <div class="container">
+                <h2>📑 Proje Raporu</h2>
+                    <p>
+                    Projenin tüm detaylarını, kullanılan yöntemleri, elde edilen sonuçları ve gelecekteki olası çalışmaları içeren detaylı rapor
+                    ve kaynakça bağlantıları aşağıdadır:
+                    </p>
+
+            <!-- Rapor Linki -->
+            <div class="rapor-link">
+                <a href="docs/proje-raporu.md" target="_blank" class="btn-small">📘 Tam Raporu Görüntüle →</a>
+            </div>
+
+            <!-- Kaynakçalar -->
+            <h3>📚 Kaynakça</h3>
+                <ul class="kaynak-list">
+                    <li><a href="kaynakca/saldiri-vakalari-kaynakca.md" target="_blank">🔴 Saldırı Vakaları Kaynakça</a></li>
+                    <li><a href="kaynakca/standartlar-kaynakca.md" target="_blank">📘 Standartlar Kaynakça</a></li>
+                    <li><a href="kaynakca/yasal-uyum-kaynakca.md" target="_blank">⚖️ Yasal Uyum Kaynakça</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elektrikli Şarj İstasyonlarının Bilgi Güvenliği. </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-<!--->
