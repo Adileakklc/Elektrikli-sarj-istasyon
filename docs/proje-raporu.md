@@ -1,3 +1,8 @@
+---
+layout: page
+title: Elektrikli Şarj İstasyonları --- Güvenlik & Anomali Tespiti Projesi
+---
+
 # Elektrikli Şarj İstasyonları --- Güvenlik & Anomali Tespiti Projesi
 
 **Kısa Özet**\

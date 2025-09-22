@@ -1,3 +1,8 @@
+---
+layout: page
+title: Güvenlik Sertleştirme Notları
+---
+
 # Güvenlik Sertleştirme Notları 
 
 Bu doküman, projede **uygulanan** ve **planlanan** sertleştirme adımlarını tek yerde toplar.  

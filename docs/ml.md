@@ -1,3 +1,8 @@
+---
+layout: page
+title: ML Anomali Modeli
+---
+
 # ML Anomali Modeli
 
 Bu projede, elektrikli şarj istasyonlarından elde edilen telemetri verileri üzerinde **anormal davranışların tespit edilmesi** için makine öğrenmesi tabanlı bir yaklaşım geliştirildi. Temel amaç, istasyonlarda olağandışı tüketim veya saldırı girişimlerini otomatik olarak tanıyabilen bir model oluşturmaktı. Bu kapsamda iki yöntem denendi: **IsolationForest** ve **Logistic Regression**.

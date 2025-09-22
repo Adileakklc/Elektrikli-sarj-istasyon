@@ -1,3 +1,8 @@
+---
+layout: page
+title: API Dokümantasyonu
+---
+
 # API Dokümantasyonu
 
 Bu dokümantasyon, backend servislerinin kısa özetidir. Tam şema için `openapi.yaml` dosyasına bakınız.

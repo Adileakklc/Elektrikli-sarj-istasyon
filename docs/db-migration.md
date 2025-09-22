@@ -1,3 +1,8 @@
+---
+layout: page
+title: DB Migration — riskScore Kolonu
+---
+
 # DB Migration — riskScore Kolonu
 
 Mevcut `telemetry` tablosu üzerinde `riskScore` kolonu yoksa eklemek için:

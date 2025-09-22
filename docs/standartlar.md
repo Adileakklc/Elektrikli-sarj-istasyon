@@ -1,3 +1,8 @@
+---
+layout: page
+title: Standartlar
+---
+
 # Uluslararası Güvenlik Standartları
 
 ## ISO 27001

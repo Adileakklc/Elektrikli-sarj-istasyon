@@ -1,3 +1,8 @@
+---
+layout: page
+title: Yasal Uyum
+---
+
 ## KVKK (Kişisel Verilerin Korunması Kanunu)
 
 **Tanım:**  

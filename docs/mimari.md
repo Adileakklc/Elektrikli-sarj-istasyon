@@ -1,3 +1,8 @@
+---
+layout: page
+title: Sistem Mimarisi
+---
+
 # 3.1 Sistem Mimarisi
 
 Bu bölümde elektrikli şarj istasyonlarının güvenliği için tasarlanan sistemin mimari yapısı özetlenmiştir. Sistem; cihaz tarafı (ESP32), ağ katmanı, backend (sunucu tarafı), makine öğrenmesi servisi ve operatör paneli olmak üzere beş ana bileşenden oluşmaktadır.

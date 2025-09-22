@@ -1,4 +1,9 @@
-# 3.3 Sistem Akış Diyagramı
+---
+layout: page
+title: Sistem Akış Diyagramı
+---
+
+#  Sistem Akış Diyagramı
 
 Bu bölümde, ESP32 cihazından gelen verilerin sistemde nasıl işlendiği adım adım açıklanmaktadır.
 

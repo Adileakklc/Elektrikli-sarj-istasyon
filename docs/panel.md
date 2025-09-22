@@ -1,3 +1,8 @@
+---
+layout: page
+title: Operatör Paneli
+---
+
 # Operatör Paneli
 
 Bu panel, son yüklenen seansları ve ML risk skorlarını gösterir.  

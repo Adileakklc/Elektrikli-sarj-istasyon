@@ -1,3 +1,8 @@
+---
+layout: page
+title: Saldırı Türleri ve Vaka Analizleri
+---
+
 # Saldırı Türleri ve Vaka Analizleri
 
 ## MITM (Man-in-the-Middle)
