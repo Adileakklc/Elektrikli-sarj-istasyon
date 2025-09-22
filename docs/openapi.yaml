@@ -1,0 +1,125 @@
+openapi: 3.0.3
+info:
+  title: EV Telemetry API
+  version: 0.1.0
+  description: Basit Telemetry + ML Skor servisleri
+servers:
+  - url: http://localhost:5000
+paths:
+  /:
+    get:
+      summary: Sağlık kontrolü
+      responses:
+        '200':
+          description: OK
+  /telemetry:
+    post:
+      summary: Telemetry kaydı ekler ve risk skorunu döndürür
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, enerji, sure, voltaj, akim, timestamp, nonce, hash]
+              properties:
+                userId: { type: string, example: user123 }
+                enerji: { type: number, format: float, example: 12.5 }
+                sure:   { type: integer, example: 3600 }
+                voltaj: { type: number, format: float, example: 220 }
+                akim:   { type: number, format: float, example: 5.7 }
+                timestamp: { type: string, example: "2025-09-12 13:57:12" }
+                nonce: { type: string, example: "UUID-or-random" }
+                hash:  { type: string, example: "deadbeef..." }
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+                  id: { type: integer, example: 42 }
+                  riskScore: { type: number, nullable: true, example: -0.137 }
+        '4XX':
+          description: Hata
+  /ml:
+    post:
+      summary: ML skor ve risk seviyesi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [energy, duration, hour, temperature, vehicle_age]
+              properties:
+                energy: { type: number, example: 12.5 }
+                duration: { type: integer, example: 3600 }
+                hour: { type: integer, minimum: 0, maximum: 23, example: 13 }
+                temperature: { type: number, example: 25.0 }
+                vehicle_age: { type: number, example: 3.0 }
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prediction: { type: string, enum: [normal, anomaly] }
+                  riskScore: { type: number, example: -0.042 }
+                  riskLevel: { type: string, enum: [dusuk, orta, yuksek] }
+        '503':
+          description: Model dosyaları eksik
+  /sessions:
+    get:
+      summary: Son N seansı döndürür
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 500, default: 50 }
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: integer }
+                        userId: { type: string }
+                        enerji: { type: number }
+                        sure: { type: integer }
+                        voltaj: { type: number }
+                        akim: { type: number }
+                        created_at: { type: string }
+                        riskScore: { type: number, nullable: true }
+                  count: { type: integer }
+  /sessions/{id}/stop:
+    post:
+      summary: Seansı durdur (işaretle/logla)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Durduruldu
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+                  stopped: { type: boolean, example: true }
+                  id: { type: integer, example: 42 }
+        '404':
+          description: Seans bulunamadı
