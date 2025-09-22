@@ -1,7 +1,3 @@
----
-layout: page
-title: ML Anomali Modeli
----
 
 # ML Anomali Modeli
 
